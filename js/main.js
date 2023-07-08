@@ -95,3 +95,44 @@ const nav = document.querySelector(".nav"),
     }
 
 
+// form
+
+
+  function submitContactForm() {
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var subject = document.getElementById("subject").value;
+    var message = document.getElementById("message").value;
+
+    // Create a new FormData object
+    var formData = new FormData();
+    formData.append("entry.373786351", name);
+    formData.append("entry.1695094314", email);
+    formData.append("entry.1915624936", subject);
+    formData.append("entry.968919601", message);
+
+    // Send the form data to the Google Form URL using Fetch API
+    fetch("https://docs.google.com/forms/d/e/1FAIpQLSdtvLSqZNuQtqEoxoq1EFOOnO9314ApR6f3s5UKhhr1lu7YXQ/formResponse", {
+      method: "POST",
+      body: formData,
+    })
+      .then(function(response) {
+        if (response.ok) {
+          // Form submitted successfully
+          alert("Form submitted successfully!");
+          // Clear the form fields
+          document.getElementById("name").value = "";
+          document.getElementById("email").value = "";
+          document.getElementById("subject").value = "";
+          document.getElementById("message").value = "";
+        } else {
+          // Form submission failed
+          alert("Form submission failed. Please try again later.");
+        }
+      })
+      .catch(function(error) {
+        // An error occurred during form submission
+        alert("An error occurred during form submission. Please try again later.");
+        console.error(error);
+      });
+  }
