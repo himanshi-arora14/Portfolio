@@ -880,7 +880,7 @@ border-bottom: 1px solid var(--bg-black-50);
 }
 @media (max-width: 471px){
 .home-img::after {
-    right: -141px;
+    right: -166px;
     bottom: -22px;
 }
 }
