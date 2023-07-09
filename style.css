@@ -561,6 +561,11 @@ border-bottom: 1px solid var(--bg-black-50);
     color: var(--text-black-900)
 
 }
+.about .about-content .timeline .timeline-date .fab{
+    margin-right: 5px;
+    color: var(--text-black-900)
+
+}
 .about .about-content .timeline .timeline-title{
     font-weight: 700;
     font-size: 18px;
@@ -615,10 +620,20 @@ border-bottom: 1px solid var(--bg-black-50);
   color: var(--skin-color);
   transition: all 0.3s ease;
 }
+.service .service-items .service-item-inner .icon .fab{
+    font-size: 40px;
+    line-height: 60px;  
+    color: var(--skin-color);
+    transition: all 0.3s ease;
+  }
 .service .service-items .service-item-inner:hover .icon{
     background: var(--skin-color)
 }
 .service .service-items .service-item-inner:hover .icon .fa{
+    font-size: 25px;
+    color: #f2f2fc;
+}
+.service .service-items .service-item-inner:hover .icon .fab{
     font-size: 25px;
     color: #f2f2fc;
 }
@@ -695,6 +710,10 @@ border-bottom: 1px solid var(--bg-black-50);
     font-size: 25px;
     color:var(--skin-color) ;
 }
+.contact .contact-info-item .icon .fab{
+    font-size: 25px;
+    color:var(--skin-color) ;
+}
 .contact .contact-info-item h4{
     font-size: 18px;
     font-weight: 700;
@@ -707,6 +726,14 @@ border-bottom: 1px solid var(--bg-black-50);
     line-height:25px ;
     color: var(--text-black-900);
     font-weight: 400;
+}
+.contact .contact-info-item p a{
+    font-size: 16px;
+    line-height:25px ;
+    color: var(--text-black-900);
+    font-weight: 400;
+   text-decoration: underline;
+   font-weight: bold;
 }
 .contact .contact-form{
     flex: 0 0 100%;
