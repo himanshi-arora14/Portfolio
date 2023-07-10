@@ -557,6 +557,16 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.16/typed.umd.js" integrity="sha512-+2pW8xXU/rNr7VS+H62aqapfRpqFwnSQh9ap6THjsm41AxgA0MhFRtfrABS+Lx2KHJn82UOrnBKhjZOXpom2LQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="js\main.js"></script>
     <script src="js\style-switcher.js"></script>
-
+    <script>
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('js/service-worker.js')
+            .then(function(registration) {
+              console.log('Service Worker registered with scope:', registration.scope);
+            })
+            .catch(function(error) {
+              console.log('Service Worker registration failed:', error);
+            });
+        }
+      </script>
 </body>
 </html>
