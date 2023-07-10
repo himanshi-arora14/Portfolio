@@ -7,6 +7,8 @@ var typed = new Typed(".typing",{
 });
 
 // aside 
+// for setting a cookie in client-side JavaScript code
+document.cookie = 'cookieName=cookieValue; SameSite=None; Secure';
 
 const nav = document.querySelector(".nav"),
     navList= nav.querySelectorAll("li"),

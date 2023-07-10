@@ -3,10 +3,12 @@
 // Define the cache name and the files to be cached
 const cacheName = 'my-site-cache';
 const filesToCache = [
-  '/',
-  '/index.html',
-  '/style.css',
-  '/js/main.js'
+    '/',
+    '/index.html',
+    '/css/skins/styles-switcher.css',
+    '/style.css',
+    '/js/main.js',
+    '/js/style-switcher.js'
 ];
 
 // Install the service worker
