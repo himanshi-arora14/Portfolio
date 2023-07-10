@@ -1,50 +1,50 @@
-// service-worker.js
+// toggle style switcher 
+const styleSwitcherToggle  = document.querySelector(".style-switcher-toggler");
+styleSwitcherToggle.addEventListener("click", ()=>{
+    document.querySelector(".styles-switcher").classList.toggle("open");
+})
 
-const cacheName = 'my-site-cache';
-const filesToCache = [
-  '/',
-  '/index.html',
-  '/style.css',
-  '/js/main.js'
-];
+// hide style switcher 
+window.addEventListener("scroll", ()=> {
+    if(document.querySelector(".styles-switcher").classList.contains("open"))
+    {
+        document.querySelector(".styles-switcher").classList.remove("open");
+    }
+})
+// theme color
 
-self.addEventListener('install', function(event) {
-  event.waitUntil(
-    caches.open(cacheName)
-      .then(function(cache) {
-        return cache.addAll(filesToCache);
-      })
-  );
-});
+const alternateStyles = document.querySelectorAll(".alternate-style");
+function setActiveStyle(color)
+{
+        alternateStyles.forEach((style)=> {
+            if(color === style.getAttribute("title"))
+            {
+                style.removeAttribute("disabled"); 
+            }
+            else 
+            {
+                style.setAttribute("disabled","true"); 
+            }
+        })
+}
 
-self.addEventListener('fetch', function(event) {
-  event.respondWith(
-    caches.match(event.request)
-      .then(function(response) {
-        if (response) {
-          return response;
-        }
-        return fetch(event.request).then(function(response) {
-          // Clone the response to enable caching
-          const clonedResponse = response.clone();
+// theme light and dark mode 
 
-          // Check if the response is a valid one
-          if (
-            !response ||
-            response.status !== 200 ||
-            response.type !== 'basic'
-          ) {
-            return response;
-          }
-
-          // Cache the fetched response
-          caches.open(cacheName)
-            .then(function(cache) {
-              cache.put(event.request, clonedResponse);
-            });
-
-          return response;
-        });
-      })
-  );
-});
+const dayNight= document.querySelector(".day-night");
+dayNight.addEventListener("click",()=>
+{
+    dayNight.querySelector("i").classList.toggle("fa-sun");
+    dayNight.querySelector("i").classList.toggle("fa-moon");
+    document.body.classList.toggle("dark");
+})
+window.addEventListener("load", ()=>
+{
+    if(document.body.classList.contains("dark"))
+    {
+        dayNight.querySelector("i").classList.add("fa-sun");
+    }
+    else
+    {
+        dayNight.querySelector("i").classList.add("fa-moon");
+    }
+})
